@@ -1,28 +1,73 @@
 Make sure DEVKITPRO and DEVKITARM are set in your environment
+Know where your codelite-home folder is. In linux it's usually ~/.codelite
 
-WORKSPACE:
-Using the workspace will make code-completion available
+++++++++++++++++ Setup Part (You'll do this only once) ++++++++++++++++++++++
+
+---------------------------- WORKSPACE: -------------------------------------
+Using the workspace will make code-completion available for all devkitARM
+projects in it.
 
 1. Copy the workspace folder and name it devkitARM
 
 2. Rename devkitARM.workspace.USER to devkitARM.workspace.YOUR_USERNAME
 
-EXTERNAL TOOLS: (project independent)
+
+
+-------------------- EXTERNAL TOOLS: (project independent) -------------------
 The tools start your project in desmume in normal or debug mode with one click
+and can fix the directory structure of your project if you use the Codelite
+method to create a devkitARM project
 
-1. Find your codelite.xml (under linux it's ~/.codelite/config/codelite.xml)
+1. Find your codelite.xml (it's in CODELITE-HOME/config/codelite.xml)
 
-2. In codelite.xml search delete the block
+2. Make sure Codelite is closed!
+
+3. In codelite.xml search delete the block
     <ArchiveObject Name="ExternalTools">
     ...
     </ArchiveObject>
 This will delete all your settings for external tools. If you have defined
-own tools and want to keep them you will have to merge the next part with
-your Tools manually.
+your own tools and want to keep them you will have to merge the next part with
+your tools manually.
 
-3. Replace the block you deleted with the content of tools.xml
+The external-tools folder has a folder callod tools.xml and a codelite-home
+folder.
 
-PROJECT:
+4. Replace the block you deleted in codelite.xml with the content of tools.xml
+
+5. Copy the contents of codelite-home into YOUR CODELITE-HOME
+
+
+
++++++++++++++++++++ Project creation (choose one method) ++++++++++++++++++++++
+
+
+------------------------ PROJECT: (In Codelite) --------------------------------
+
+THIS DOES NOT WORK IN WINDOWS (YET) BECAUSE A SCRIPT THAT IS NEEDED FOR THIS
+DOES NOT RUN UNDER WINDOWS
+
+1. Make sure you did at least the External Tools step
+
+2. Copy the project-template-codelite folder to CODELITE-HOME/templates/projects
+
+3. Go into Codelite, switch to the devkit workspace and Create a new project.
+There should be a new Category 'devkitPro'. Select this and then the devkitARM
+template. Also make sure 'Create the project under a seperate directory' is 
+checked.
+
+4. Before you can use the project you have to click once on the 'Fix Project'
+external tool. This will setup the directory structure so that it works with 
+the Makefile (Codelite uses only virtual folders and throws the real folders
+away...)
+
+5. Now alt+tab around until codelite notices that the project has been changed
+by the Fix Project script and allow it to reload.
+
+6. DONE
+
+
+------------------ PROJECT: (Manual way and Windows for now) -------------------
 
 1. Copy the project-template folder and rename it to YOUR_PROJECTNAME
 YOUR_PROJECTNAME has to be the same in all steps
