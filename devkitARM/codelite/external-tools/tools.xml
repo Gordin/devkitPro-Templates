@@ -1,0 +1,36 @@
+  <ArchiveObject Name="ExternalTools">
+    <long Value="3" Name="toolsCount"/>
+    <SerializedObject Name="Tool_0">
+      <wxString Value="external_tool_0" Name="m_id"/>
+      <wxString Value="desmume-glade" Name="m_path"/>
+      <wxString Value="$(ProjectName).nds" Name="m_arguments"/>
+      <wxString Value="$(ProjectPath)" Name="m_wd"/>
+      <wxString Value="Desmume Run" Name="m_name"/>
+      <wxString Value="${HOME}/.codelite/images/desmume16.png" Name="m_icon16"/>
+      <wxString Value="${HOME}/.codelite/images/desmume16.png" Name="m_icon24"/>
+      <bool Value="0" Name="m_captureOutput"/>
+      <bool Value="0" Name="m_saveAllFiles"/>
+    </SerializedObject>
+    <SerializedObject Name="Tool_1">
+      <wxString Value="external_tool_1" Name="m_id"/>
+      <wxString Value="desmume-glade" Name="m_path"/>
+      <wxString Value="--arm9gdb=2159 $(ProjectName).nds" Name="m_arguments"/>
+      <wxString Value="$(ProjectPath)" Name="m_wd"/>
+      <wxString Value="Desmume Debug" Name="m_name"/>
+      <wxString Value="${HOME}/.codelite/images/desmume_debug16.png" Name="m_icon16"/>
+      <wxString Value="${HOME}/.codelite/images/desmume_debug16.png" Name="m_icon24"/>
+      <bool Value="0" Name="m_captureOutput"/>
+      <bool Value="0" Name="m_saveAllFiles"/>
+    </SerializedObject>
+    <SerializedObject Name="Tool_2">
+      <wxString Value="external_tool_2" Name="m_id"/>
+      <wxString Value="$(CodeLitePath)/projectfix" Name="m_path"/>
+      <wxString Value="$(ProjectPath) $(ProjectName)" Name="m_arguments"/>
+      <wxString Value="$(ProjectPath)" Name="m_wd"/>
+      <wxString Value="Fix Project" Name="m_name"/>
+      <wxString Value="" Name="m_icon16"/>
+      <wxString Value="" Name="m_icon24"/>
+      <bool Value="0" Name="m_captureOutput"/>
+      <bool Value="1" Name="m_saveAllFiles"/>
+    </SerializedObject>
+  </ArchiveObject>
