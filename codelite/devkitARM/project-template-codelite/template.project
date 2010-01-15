@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<CodeLite_Project Name="template" InternalType="devkitARM">
+<CodeLite_Project Name="devkitARM" InternalType="devkitPro">
   <Description/>
   <Dependencies/>
   <VirtualDirectory Name="resources">

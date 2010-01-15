@@ -1,0 +1,36 @@
+#!/bin/sh
+# Tests if first argument is a folder and exists
+[ -d "$1" ] || exit 1
+# Tests if second argument is a writable file
+[ -w "$2.project" ] || exit 1
+
+cd $1
+
+#Creates source directory and puts source files in it
+mkdir -p source
+for i in `ls | grep '\.\(c\|cpp\|asm\)\b'`
+do
+    mv $i source
+done
+
+#Creates include directory and puts header files in it
+mkdir -p include
+for i in `ls | grep '\.\(h\)\b'`
+do
+    mv $i include
+done
+
+#Creates gfx directory and puts grafic files in it
+mkdir -p gfx
+for i in `ls | grep '\.\(gif\|png\|jpg\|jpeg\)\b'`
+do
+    mv $i gfx
+done
+
+#replaces the debugger with the full path because codelite doesn't starts debugging if there's a variable in it
+sed -i "s|\(DebuggerPath=\"\)\([A-Za-z$\{\}\/-]\+\)\(\">\)|\1${DEVKITARM}/bin/arm-eabi-gdb\3|" $2.project
+
+#Updates the filenames in the codelite project
+sed -i 's/\(File Name="\)\(\w\+\)\.\(h\)/\1include\/\2.\3/' $2.project
+sed -i 's/\(File Name="\)\(\w\+\)\.\(c\|cpp\|asm\)/\1source\/\2.\3/' $2.project
+sed -i 's/\(File Name="\)\(\w\+\)\.\(gif\|png\|jpg\|jpeg\)/\1gfx\/\2.\3/' $2.project
