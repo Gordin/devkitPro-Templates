@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Workspace>
+  <Environment Name=""/>
+  <WorkspaceParserPaths>
+    <Include Path="${DEVKITARM}/arm-eabi/include"/>
+    <Include Path="${DEVKITARM}/include"/>
+    <Include Path="${DEVKITPRO}/libnds/include"/>
+  </WorkspaceParserPaths>
+</Workspace>
